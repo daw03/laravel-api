@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('titulo', 255);
             $table->text('descripcion');
             $table->text('destinatario');
-            $table->integer('firmantes');
-            $table->enum('estado', ['aceptada', 'pendiente']);
+            $table->integer('firmantes')->default(0);
+            $table->enum('estado', ['aceptada', 'pendiente'])->default('pendiente');
             $table->foreignId('user_id');
             $table->foreignId('categoria_id');
             $table->timestamps();
