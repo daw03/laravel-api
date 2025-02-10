@@ -16,9 +16,9 @@ class PeticionePolicy
         if($user->role_id == 1){
             return true;
         }
-        else if ($user->role_id == 2 && $user->id == $peticione->user_id) {
-            return true;
-        }
+       else if ($user->role_id == 2 && $user->id == $peticione->user_id) {
+           return true;
+       }
         return false;
     }
 
@@ -35,7 +35,7 @@ class PeticionePolicy
         if($user->role_id == 1){
             return true;
         }
-        else if (($user->role_id === 2 && $user->id === $peticione->user_id)) {
+        else if ($user->role_id == 2 && $user->id == $peticione->user_id) {
             return true;
         }
         return false;
@@ -46,7 +46,7 @@ class PeticionePolicy
         if($user->role_id == 1){
             return true;
         }
-        else if ($user->role_id === 2 && !$peticione->firmas()->where('user_id', $user->id)->exists()) {
+        else if ($user->role_id == 2 && !$user->firmas->contains($peticione->id)) {
             return true;
         }
         return false;
